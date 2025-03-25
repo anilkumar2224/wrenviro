@@ -1,24 +1,52 @@
-import logo from './logo.svg';
+
+import { useEffect, useRef } from 'react';
 import './App.css';
+import About from './pages/About';
+import Banner from './pages/Banner';
+import LocationMapSection from './pages/Contact';
+import CTASection from './pages/CTAsecton';
+import Footer from './pages/Footer';
+import Header from './pages/Header';
+import ImpactSection from './pages/Impact';
+import NewsletterSection from './pages/Newsletter';
+import ScrollySection from './pages/ScrollSection';
+import Services from './pages/Services';
+import { AnimatePresence, motion } from "framer-motion";
+import CustomCursor from './components/CustomCursor';
+import SmoothScroll from './components/SmoothScroll';
 
 function App() {
+  useEffect(() => {
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = "smooth";
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = "";
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AnimatePresence>
+ 
+    <div className="App" >
+         <CustomCursor/>
+           <Header/>
+           {/* <SmoothScroll> */}
+          <Banner/>
+    
+          <About/>
+          <ScrollySection/>
+          <CTASection/>
+          <Services/>
+         
+          <ImpactSection/>
+          <LocationMapSection/>
+          <NewsletterSection/>
+          <Footer/>
+         {/* </SmoothScroll> */}
     </div>
+   
+    </AnimatePresence>
   );
 }
 
