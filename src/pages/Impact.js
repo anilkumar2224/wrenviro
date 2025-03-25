@@ -1,8 +1,41 @@
 import React from 'react';
 
 const ImpactSection=() => {
+  const impacts=[
+      {
+        id:1,
+        icon: "fas fa-chart-line text-blue-600",
+        bg: "border-blue-200 bg-blue-50",
+        description:'Over 70 years of combined expertise in waste management and renewable energy'
+
+      },
+      {
+        id:2,
+        icon: "fa fa-check-circle text-green-600",
+        bg: "border-green-200 bg-green-50",
+        description:'Proven track record in delivering sustainable, long-term solutions'
+      },
+      {
+        id:3,
+        icon: "fa fa-cogs text-purple-600",
+        bg: "border-purple-200 bg-purple-50",
+        description:'Strong expertise in feasibility studies, project management, and technical support'
+      },
+      {
+        id:4,
+        icon: "fa fa-leaf text-lime-600",
+        bg:"border-lime-200 bg-lime-50",
+        description:'Commitment to fostering environmental awareness and education'
+      },
+      {
+        id:5,
+        icon: "fa fa-recycle text-amber-600",
+        bg:"border-amber-200 bg-amber-50",
+        description:'Innovative circular economy strategies & sustainable energy solutions'
+      },
+  ]
   return (
-    <section id="impact" className="py-24 relative overflow-hidden bg-white">
+    <section id="impact" className="pt-24 relative overflow-hidden bg-white">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-white -z-10">
         <div className="h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       </div>
@@ -20,93 +53,27 @@ const ImpactSection=() => {
             Driving positive change through measurable environmental achievements
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 md:grid-cols-2 gap-6 mb-20">
-          {/* First Metric: Projects Completed */}
-          <div className="p-6 md:p-8 rounded-xl border border-blue-200 bg-blue-50 shadow-sm transition-all duration-300 flex flex-col h-full  card-hover">
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-5 shadow-sm">
-              <i className="fas fa-diagram-project text-xl text-blue-600 icon-hover"></i>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:grid-cols-2 gap-6 mb-6 ">
+          {impacts?.map(impact=>{
+            return  <div className={`p-6 md:p-8 rounded-xl border  shadow-sm transition-all duration-300 flex flex-col h-auto  card-hover ${impact.bg}  md:flex-row md: gap-6`}>
+            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-5 shadow-sm shrink-0">
+              <i className={` text-xl text-blue-600 icon-hover ${impact.icon}`}></i>
+              
             </div>
-            <div className="flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">Projects Completed</h3>
-              <div className="flex items-baseline mb-3">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900">
-                  <span className="font-bold">500+</span>
-                </div>
-              </div>
-              <div className="w-full h-1.5 bg-gray-100 rounded-full mb-3 overflow-hidden">
-                <div className="h-full text-blue-600 rounded-full" style={{ width: '92%' }}></div>
-              </div>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                Environmental initiatives successfully delivered across industries from waste management to renewable energy integration.
-              </p>
-            </div>
+            <h3 className="text-lg font-semibold text-gray-800 mb-1">{impact.description}</h3>
+          
+         
           </div>
+          })}
+  
+         
 
-          {/* Second Metric: CO₂ Reduction */}
-          <div className="p-6 md:p-8 rounded-xl border border-green-200 bg-green-50 shadow-sm transition-all duration-300 flex flex-col h-full  card-hover">
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-5 shadow-sm">
-              <i className="fas fa-leaf text-xl text-green-600 icon-hover"></i>
-            </div>
-            <div className="flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">CO₂ Reduction</h3>
-              <div className="flex items-baseline mb-3">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900">
-                  <span className="font-bold">2.8M</span>
-                </div>
-              </div>
-              <div className="w-full h-1.5 bg-gray-100 rounded-full mb-3 overflow-hidden">
-                <div className="h-full text-green-600 rounded-full" style={{ width: '78%' }}></div>
-              </div>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                Metric tons of carbon emissions eliminated through our comprehensive sustainability programs and interventions.
-              </p>
-            </div>
-          </div>
 
-          {/* Third Metric: Waste Reduction */}
-          <div className="p-6 md:p-8 rounded-xl border border-purple-200 bg-purple-50 shadow-sm transition-all duration-300 flex flex-col h-full  card-hover">
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-5 shadow-sm">
-              <i className="fas fa-recycle text-xl text-purple-600 icon-hover"></i>
-            </div>
-            <div className="flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">Waste Reduction</h3>
-              <div className="flex items-baseline mb-3">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900">
-                  <span className="font-bold">80%</span>
-                </div>
-              </div>
-              <div className="w-full h-1.5 bg-gray-100 rounded-full mb-3 overflow-hidden">
-                <div className="h-full text-purple-600 rounded-full" style={{ width: '86%' }}></div>
-              </div>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                Average decrease in landfill waste achieved through our circular economy principles and recycling initiatives.
-              </p>
-            </div>
-          </div>
+       
 
-          {/* Fourth Metric: Global Reach */}
-          <div className="p-6 md:p-8 rounded-xl border border-amber-200 bg-amber-50 shadow-sm transition-all duration-300 flex flex-col h-full  card-hover">
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-5 shadow-sm">
-              <i className="fas fa-earth-americas text-xl text-amber-600 icon-hover"></i>
-            </div>
-            <div className="flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">Global Reach</h3>
-              <div className="flex items-baseline mb-3">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900">
-                  <span className="font-bold">25+</span>
-                </div>
-              </div>
-              <div className="w-full h-1.5 bg-gray-100 rounded-full mb-3 overflow-hidden">
-                <div className="h-full text-amber-600 rounded-full" style={{ width: '65%' }}></div>
-              </div>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                Countries where we've implemented sustainable solutions, bringing positive environmental impact to communities worldwide.
-              </p>
-            </div>
-          </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-neutral-100 relative">
+        {/* <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-neutral-100 relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-green-500 to-amber-500 rounded-t-2xl"></div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2">
@@ -175,7 +142,7 @@ const ImpactSection=() => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

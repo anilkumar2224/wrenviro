@@ -33,8 +33,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-2xl font-bold font-heading">
-          <span className="text-white">Eco</span>
-          <span className="text-primary-light">Venture</span>
+          <span className="text-white">7WR</span>
+          <span className="text-primary-light">enviro</span>
         </div>
       </div>
     </div>
@@ -63,30 +63,26 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#about" className="text-white/80 hover:text-white flex items-center transition-colors">
+                <a href="#about" className="text-white/80 hover:text-white flex items-center ">
                   <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>About Us
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-white/80 hover:text-white flex items-center transition-colors">
-                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Our Services
+                <a href="#services" className="text-white/80 hover:text-white flex items-center ">
+                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Expertise
                 </a>
               </li>
               <li>
-                <a href="#projects" className="text-white/80 hover:text-white flex items-center transition-colors">
-                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Projects
+                <a href="#projects" className="text-white/80 hover:text-white flex items-center ">
+                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Services
                 </a>
               </li>
               <li>
-                <a href="#team" className="text-white/80 hover:text-white flex items-center transition-colors">
-                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Our Team
+                <a href="#team" className="text-white/80 hover:text-white flex items-center ">
+                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Contact
                 </a>
               </li>
-              <li>
-                <a href="#waitlist" className="text-white/80 hover:text-white flex items-center transition-colors">
-                  <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Join Waitlist
-                </a>
-              </li>
+            
             </ul>
           </div>
           <div className=" transform translate-y-[20px]">
@@ -96,22 +92,22 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-white/80 hover:text-white flex items-center transition-colors">
+                <a href="#" className="text-white/80 hover:text-white flex items-center ">
                   <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white flex items-center transition-colors">
+                <a href="#" className="text-white/80 hover:text-white flex items-center ">
                   <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Case Studies
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white flex items-center transition-colors">
+                <a href="#" className="text-white/80 hover:text-white flex items-center ">
                   <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>Sustainability Guide
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white flex items-center transition-colors">
+                <a href="#" className="text-white/80 hover:text-white flex items-center ">
                   <i className="fas fa-chevron-right text-xs mr-2 text-primary-light"></i>FAQ
                 </a>
               </li>
@@ -127,32 +123,32 @@ const Footer = () => {
                 <div className="bg-primary-light/20 text-primary-light w-8 h-8 rounded-full flex items-center justify-center mr-3">
                   <i className="fas fa-map-marker-alt"></i>
                 </div>
-                <span className="text-white/80 pt-1">123 Green Street, San Francisco, CA 94123</span>
+                <span className="text-white/80 pt-1">Spain, Dubai</span>
               </li>
               <li className="flex items-start">
                 <div className="bg-primary-light/20 text-primary-light w-8 h-8 rounded-full flex items-center justify-center mr-3">
                   <i className="fas fa-envelope"></i>
                 </div>
-                <span className="text-white/80 pt-1">info@ecoventure.com</span>
+                <span className="text-white/80 pt-1">info@7WRenviro.com</span>
               </li>
               <li className="flex items-start">
                 <div className="bg-primary-light/20 text-primary-light w-8 h-8 rounded-full flex items-center justify-center mr-3">
                   <i className="fas fa-phone-alt"></i>
                 </div>
-                <span className="text-white/80 pt-1">(123) 456-7890</span>
+                <span className="text-white/80 pt-1">+(971) 545027127</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-white/10 pt-8 ">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/70 text-sm mb-4 md:mb-0">© 2025 EcoVenture, Inc. All rights reserved.</p>
+            <p className="text-white/70 text-sm mb-4 md:mb-0">© 2025 7WRenviro, Inc. All rights reserved.</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">Privacy Policy</a>
+              <a href="#" className="text-white/70 hover:text-white text-sm ">Privacy Policy</a>
               <span className="text-white/40">|</span>
-              <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">Terms of Service</a>
+              <a href="#" className="text-white/70 hover:text-white text-sm ">Terms of Service</a>
               <span className="text-white/40">|</span>
-              <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">Cookies</a>
+              <a href="#" className="text-white/70 hover:text-white text-sm ">Cookies</a>
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
+import logo from '../assets/logo.png'
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -13,28 +15,20 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const scrollToSection = (link) => {
-   
-    link=link.substring(1);
-    console.log("idd",link)
-    const ele=document.getElementById(link)
-    ele?.scrollIntoView({
-      behavior: 'smooth', // Enables smooth scrolling
-      block: 'start', // Scrolls to the start of the section
-    });
-  };
+
 
 
   const navItems = [
     { name: "About", href: "#about" },
+    { name: "Expertise", href: "#expertise" },
     { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
     { name: "Impact", href: "#impact" },
-    { name: "Our Team", href: "#team" }
+    { name: "Contact", href: "#contact" }
   ];
 
   return (
@@ -51,29 +45,18 @@ export default function Header() {
               animate={{ opacity: 1 }}
               className="text-primary text-2xl font-bold font-heading"
             >
-              <span className="text-primary">Eco</span>
-              <span className="text-secondary">Venture</span>
+              {/* <span className="text-primary">Eco</span>
+              <span className="text-secondary">Venture</span> */}
+              <a href='/'>
+              <img src={logo} className="text-primary" style={{width:'80px',objectFit:'contain'}}/>
+              </a>
             </motion.div>
           </div>
           
-          <nav className="hidden md:flex space-x-8">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="text-neutral-medium hover:text-primary font-medium transition-colors"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-             
-              >
-                {item.name}
-              </motion.a>
-            ))}
-          </nav>
+         
           
           <div className="flex items-center">
-            <motion.a
+            {/* <motion.a
               href="#waitlist"
               className="hidden md:inline-block bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-full transition-all transform hover:scale-105"
               initial={{ opacity: 0 }}
@@ -81,8 +64,24 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
             >
               Join Waitlist
-            </motion.a>
-            
+            </motion.a> */}
+      <nav className="hidden md:flex space-x-8">
+  {navItems.map((item, index) => (
+    <motion.a
+      key={item.name}
+      href={item.href}
+      className="relative text-neutral-medium hover:text-primary font-medium transition-colors"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+    >
+      {item.name}
+ 
+     
+    </motion.a>
+  ))}
+</nav>
+
             <button 
               onClick={toggleMobileMenu}
               className="md:hidden text-neutral-medium hover:text-primary"
@@ -103,24 +102,24 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="md:hidden pb-6 overflow-hidden"
             >
-              <div className="flex flex-col space-y-4 pt-4">
+              <div className="flex flex-col space-y-4 pt-4" id="mobile-nav" >
                 {navItems.map((item) => (
                   <a 
                     key={item.name}
                     href={item.href}
                     className="text-neutral-medium hover:text-primary font-medium transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
+           
                   >
                     {item.name}
                   </a>
                 ))}
-                <a 
+                {/* <a 
                   href="#waitlist" 
                   className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-full text-center transition-all"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Join Waitlist
-                </a>
+                </a> */}
               </div>
             </motion.div>
           )}

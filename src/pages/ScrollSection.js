@@ -1,258 +1,20 @@
-// import { useRef, useState, useEffect } from "react";
-// import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-// import gsap from 'gsap';
-// import ScrollTrigger from 'gsap/ScrollTrigger';
-// export default function ScrollySection() {
-//   const containerRef = useRef(null);
-//   const [currentIndex, setCurrentIndex] = useState(0);
-
-//   const { scrollYProgress } = useScroll({
-//     target: containerRef,
-//     offset: ["start start", "end end"],
-//   });
-
-//   // Even smoother spring physics for most fluid motion
-//   const smoothScrollYProgress = useSpring(scrollYProgress, {
-//     stiffness: 5,
-//     damping: 5,
-//     restDelta: 0.1,
-//     mass: 1
-//   });
-
-//   // Text movement based on scroll
-//   const textX1 = useTransform(smoothScrollYProgress, [0, 0.25], [0, -10]);
-//   const textX2 = useTransform(smoothScrollYProgress, [0.25, 0.5], [0, -10]);
-//   const textX3 = useTransform(smoothScrollYProgress, [0.5, 0.75], [0, -10]);
-//   const textX4 = useTransform(smoothScrollYProgress, [0.75, 1], [0, -10]);
-
-//   // Image movement based on scroll
-//   const imageX1 = useTransform(smoothScrollYProgress, [0, 0.25], [0, 80]);
-//   const imageX2 = useTransform(smoothScrollYProgress, [0.25, 0.5], [0, 80]);
-//   const imageX3 = useTransform(smoothScrollYProgress, [0.5, 0.75], [0, 80]);
-//   const imageX4 = useTransform(smoothScrollYProgress, [0.75, 1], [0, 80]);
-
-//   // Update current index based on scroll position
-// //   useEffect(() => {
-// //     return scrollYProgress.on("change", (latest) => {
-// //         if (latest <= 0) setCurrentIndex(0);
-// //       else if (latest < 0.25) setCurrentIndex(0);
-// //       else if (latest < 0.45) setCurrentIndex(1);
-// //       else if (latest < 0.65) setCurrentIndex(2);
-// //       else  setCurrentIndex(3);
-    
-     
-   
-// //     });
-// //   }, [scrollYProgress]);
-// useEffect(() => {
-//   const handleScroll = () => {
-//     if (!containerRef.current) return;
-
-//     const containerTop = containerRef.current.offsetTop;
-//     const containerBottom = containerTop + containerRef.current.offsetHeight;
-//     const scrollY = window.scrollY;
-
-   
-
-//     // Check if scrollY is within container boundaries
-//     if (scrollY >= containerTop && scrollY <= containerBottom) {
-//       const scrollTop = scrollY - containerTop;
-//       const scrollHeight = containerRef.current.scrollHeight 
-//       const progress = scrollHeight === 0 ? 0 : scrollTop / scrollHeight;
-//       console.log("Hii",containerTop,containerBottom,scrollY,scrollY >= containerTop && scrollY <= containerBottom, scrollTop,scrollHeight,progress)
-
-//       if (progress <= 0) setCurrentIndex(0);
-//       else if (progress < 0.15) setCurrentIndex(0);
-//       else if (progress < 0.45) setCurrentIndex(1);
-//       else if (progress < 0.65) setCurrentIndex(2);
-//       else if (progress < 0.9) setCurrentIndex(3);
-//       else setCurrentIndex(-1);
-//     }
-//   };
-
-//   window.addEventListener('scroll', handleScroll);
-//   handleScroll(); // Initialize on mount
-
-//   return () => window.removeEventListener('scroll', handleScroll);
-// }, [containerRef, setCurrentIndex]);
-
-
-
-//   const items = [
-//     {
-//       id: 1,
-//       title: "Sustainable Resource Management",
-//       description: "Our approach integrates cutting-edge technology with environmental best practices to optimize resource usage while minimizing waste generation.",
-//       imagePath: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-//       align: "right",
-//       backgroundColor: "bg-gradient-to-br from-green-50 to-green-100/80",
-//       iconClass: "fa-recycle",
-//       stats: [
-//         { label: "Waste Reduction", value: "Up to 80%" },
-//         { label: "Resource Efficiency", value: "35-50%" },
-//         { label: "Cost Savings", value: "$2.4M avg." }
-//       ]
-//     },
-//     {
-//       id: 2,
-//       title: "Carbon Footprint Reduction",
-//       description: "We develop comprehensive strategies to measure, manage and reduce carbon emissions across your operations.",
-//       imagePath: "https://images.unsplash.com/photo-1473170611423-22489201d919?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1774&q=80",
-//       align: "left",
-//       backgroundColor: "bg-gradient-to-br from-blue-50 to-blue-100/80",
-//       iconClass: "fa-leaf",
-//       stats: [
-//         { label: "CO₂ Reduction", value: "25-40%" },
-//         { label: "Energy Savings", value: "1.7M kWh" },
-//         { label: "Carbon Credits", value: "15K tons" }
-//       ]
-//     },
-//     {
-//       id: 3,
-//       title: "Renewable Energy Transition",
-//       description: "Our team of experts guides organizations through the complex process of transitioning to renewable energy sources.",
-//       imagePath: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80",
-//       align: "right",
-//       backgroundColor: "bg-gradient-to-br from-amber-50 to-amber-100/80",
-//       iconClass: "fa-solar-panel",
-//       stats: [
-//         { label: "Clean Energy", value: "70MW+" },
-//         { label: "ROI", value: "3-5 years" },
-//         { label: "Cost Reduction", value: "30-45%" }
-//       ]
-//     },
-//     {
-//       id: 4,
-//       title: "Environmental Compliance & Reporting",
-//       description: "Stay ahead of evolving regulations with our comprehensive environmental compliance services.",
-//       imagePath: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-//       align: "left",
-//       backgroundColor: "bg-gradient-to-br from-purple-50 to-purple-100/80",
-//       iconClass: "fa-clipboard-check",
-//       stats: [
-//         { label: "Compliance Rate", value: "99.8%" },
-//         { label: "Risk Reduction", value: "85%" },
-//         { label: "Reporting Time", value: "-60%" }
-//       ]
-//     }
-//   ];
-
-//   return (
-//     <section
-//       className="relative overflow-hidden bg-white"
-//       style={{  }} // Updated height for the full scrollable section
-//       ref={containerRef}
-//     >
-//       {/* Section intro - visible only at the start */}
-//       <div className="container mx-auto px-4 md:px-8 py-16 sticky top-0 z-10 pointer-events-none">
-//         <div className="max-w-3xl mx-auto text-center">
-//           {/* <motion.div
-//             style={{ opacity: useTransform(smoothScrollYProgress, [0, 0.05], [1, 0]) }}
-//           > */}
-//             <span className="px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary font-medium text-sm inline-block mb-4">
-//               Our Approach
-//             </span>
-//             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-heading mb-4">
-//               Sustainable Solutions Across Industries
-//             </h2>
-//             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-//               Scroll down to explore our comprehensive sustainability services that drive measurable environmental impact while improving business performance
-//             </p>
-//           {/* </motion.div> */}
-//         </div>
-//       </div>
-
-//       {/* Sticky scroll content */}
-//       <div className=" flex items-center relative " >
-//       <div className=" top-0 h-screen flex items-center overflow-hidden"  >
-//         {/* Colored backgrounds that fade in/out with gradient */}
-//         {items.map((item, index) => {
-        
-      
-//           return index==currentIndex ? <motion.div
-//             key={`bg-${item.id}`}
-//             className={`absolute inset-0 ${item.backgroundColor} transition-all duration-700`}
-//             style={{
-//               zIndex: 0,
-          
-//             }}
-//           />
-//         :null
-// })}
-// </div>
-
-
-//         {/* Main content container */}
-//         <div className="sticky_section container mx-auto px-4 md:px-8 py-16 space-y-10"
-//         >
-//           {items.map((item, index) => {
-         
-  
-//     return  <div
-//               key={item.id}
-//               className={`flex flex-col md:flex-row items-center space-y-8 md:space-y-0 sticky_section_card-${index}`} // Ensure it takes full screen height
-              
-        
-//             >
-//               {/* Text Content */}
-//               <motion.div
-//                 className="text-center md:text-left md:w-1/2"
-//                 style={{
-//                   x: index === 0 ? textX1 : index === 1 ? textX2 : index === 2 ? textX3 : textX4,  // Use the correct scroll transform for each section
-//                 }}
-//               >
-//                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-//                   <i className={`fas ${item.iconClass} text-xl text-primary`} />
-//                 </div>
-//                 <h3 className="text-2xl md:text-3xl font-bold mb-4">{item.title}</h3>
-//                 <p className="text-lg text-gray-600 mb-6">{item.description}</p>
-//                 <div className="grid grid-cols-3 gap-4 mb-6">
-//                   {item.stats.map((stat, i) => (
-//                     <div key={i} className="text-center">
-//                       <p className="text-lg font-bold">{stat.value}</p>
-//                       <p className="text-xs">{stat.label}</p>
-//                     </div>
-//                   ))}
-//                 </div>
-//                 <motion.a
-//                   href="#"
-//                   className="inline-flex items-center text-white bg-primary hover:bg-primary-dark px-5 py-2.5 rounded-lg"
-//                 >
-//                   Learn more
-//                   <i className="fas fa-arrow-right ml-2 text-sm"></i>
-//                 </motion.a>
-//               </motion.div>
-
-//               {/* Image Content */}
-//               <motion.div
-//                 className="w-full md:w-1/2"
-//                 style={{
-//                   x: index === 0 ? imageX1 : index === 1 ? imageX2 : index === 2 ? imageX3 : imageX4,  // Use the correct scroll transform for each section
-//                 }}
-//               >
-//                 <img src={item.imagePath} alt={item.title} className="w-full h-full object-cover rounded-2xl" />
-//               </motion.div>
-//             </div>
-//             // :null
-// })}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import expertise1 from '../assets/expertise-1.jpg'
+import expertise2 from '../assets/expertise-2.jpg'
+import expertise3 from '../assets/expertise-3.jpg'
+import expertise4 from '../assets/expertise-4.jpg'
+import expertise5 from '../assets/expertise-5.jpg'
 const StickySection = () => {
   const galleryRef = useRef(null);
   const rightRef = useRef(null);
   const images = [
     {
-      imgUrl: "https://picsum.photos/1920/1080?id=1",
-      altText: "Red",
+      imgUrl: expertise1,
+      icon:"fas fa-recycle",
       title: "Waste Management & Recycling",
       description:"We offer comprehensive waste management and recycling solutions designed to reduce landfill waste, enhance resource recovery, and promote a circular economy.",
       list:["Integrated Waste Management Solutions for Municipal Solid Waste, Industrial Waste, and Hazardous Waste",
@@ -264,28 +26,54 @@ const StickySection = () => {
         textColor:"#E67FB4"
     },
     {
-      imgUrl: "https://picsum.photos/1920/1080?id=2",
-      altText: "Green",
-      title: "Green Image",
+      imgUrl:expertise2,
+      icon:"fas fa-project-diagram",
+      title: "Feasibility Studies & Project Management",
+      description:"Our in-depth feasibility studies assess the technical, commercial, and financial viability of waste management and renewable energy projects.",
+      list:["Market analysis and risk assessment for recycling and energy projects",
+       " Planning, design, and implementation support for waste and energy projects",
+        "Regulatory compliance and environmental impact assessment"],
       bgColor: "rgb(224, 240, 255)",
       bgColorClass: "green",
       textColor:"#78A9D9"
     },
     {
-      imgUrl: "https://picsum.photos/1920/1080?id=3",
-      altText: "Blue",
-      title: "Blue Image",
+      imgUrl:expertise3,
+      icon:"fa-solid fa-user-graduate",
+      title: "Environmental & Sustainability Education for School Children.",
+      description:"We believe that education is the key to driving long-term environmental change. Our specialized training programs for schools, universities, and corporate institutions include",
+      list:["Comprehensive courses in sustainability, waste management, and circular economy",
+       "Hands-on learning experiences through study tours and practical workshops",
+        "Curriculum design and teaching materials for environmental education",
+        "Awareness programs on climate change, carbon footprint reduction, and green technologies"],
       bgColor: "rgb(255, 237, 224)",
       bgColorClass: "blue",
        textColor:"#F2AB79"
     },
     {
-      imgUrl: "https://picsum.photos/1920/1080?id=4",
-      altText: "Orange",
-      title: "Orange Image",
+      imgUrl: expertise4,
+     icon: "fas fa-atom",
+      title: "Renewable Energy Solutions",
+      description:"Our renewable energy services focus on transforming waste into valuable energy resources through",
+      list:["Bio-Electricity & Biogas Generation from organic waste",
+        "Waste-to-Energy (WTE) & Waste-to-Heat Solutions",
+        "Solar Energy Integration in waste management projects",
+        "Feasibility Studies for renewable energy project implementation"],
       bgColor: "rgb(211, 214, 240)",
       bgColorClass: "orange",
        textColor:"#7781D9"
+    },
+    {
+      imgUrl:expertise5,
+      icon: "fas fa-ticket",
+      title: "Technical, Commercial & Business Support",
+      description:"We provide end-to-end consultancy and strategic support for businesses and government bodies involved in recycling and renewable energy projects. Our services include",
+      list:["Procurement and selection of cutting-edge recycling and waste processing technologies",
+        "Business development strategies for waste and renewable energy sectors",
+        "Investment planning, funding assistance, and carbon credit revenue generation"],
+      bgColor: "rgb(240, 238, 211)",
+      bgColorClass: "orange",
+       textColor:"#bbb555"
     },
   ];
 
@@ -330,7 +118,7 @@ function debounce(func, delay) {
     const scrollTriggerInstance = ScrollTrigger.create({
       trigger: galleryRef.current,
       start: 'top top',
-      end: 'bottom bottom',
+      end: `+=${galleryRef.current.scrollHeight} bottom`,
       pin: rightRef.current,
       animation: photoAnimation,
       scrub: true,
@@ -391,7 +179,7 @@ function debounce(func, delay) {
 
 
   return (
-    <div>
+    <section id="expertise" className="pt-24 relative overflow-hidden bg-white">
      {/* Section intro - visible only at the start */}
       <div className="container mx-auto px-4 md:px-8 py-16  top-0 z-10 pointer-events-none" >
         <div className="max-w-3xl mx-auto text-center">
@@ -417,7 +205,7 @@ function debounce(func, delay) {
             {images.map((image, index) => (
               <div className={`details d${index + 1}`} key={index}>
                  <div className="bg-white/40 backdrop-blur-sm w-20 h-20 rounded-br-3xl flex items-center justify-center mb-6 shadow-sm shrink-0">
-                <i className={`fas fa-chart-line text-2xl text-[${image.textColor}] icon-hover`}></i>
+                <i className={`${image.icon} text-2xl text-[${image.textColor}] icon-hover`}></i>
               </div>
                 <div className={` text-3xl md:text-4xl font-bold  font-heading mb-6`}>
                   <span>{image.title }</span>
@@ -454,7 +242,7 @@ function debounce(func, delay) {
       </div>
 
     
-    </div>
+    </section>
   );
 };
 
